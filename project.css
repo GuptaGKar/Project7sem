@@ -1,0 +1,159 @@
+/* Reset some default styles */
+body, h1, h2, h3, p, ul, li {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Basic styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #145688;
+    color: #fff;
+    padding: 10px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.nav-logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+ul {
+    list-style: none;
+    display: flex;
+}
+
+ul li {
+    margin-right: 20px;
+}
+
+ul li:last-child {
+    margin-right: 0;
+}
+
+ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+}
+
+.project-details {
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.project-header h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.project-description h2,
+.project-scopes h2,
+.project-outcomes h2,
+.required-skills h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.project-description p {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.project-scopes ul,
+.project-outcomes ul,
+.required-skills ul {
+    list-style: disc;/* Add this CSS for the "Send Request" button */
+    .send-request {
+        text-align: center;
+        margin-top: 20px;
+    }
+    
+    #request-button {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+    }
+    
+    #request-button.request-sent {
+        background-color: #28a745; /* Change color when request is sent */
+    }
+    
+    list-style: disc; /* Use 'disc' for bullet points */
+    margin-left: 20px;
+}
+
+.project-scopes ul li,
+.project-outcomes ul li,
+.required-skills ul li {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+footer {
+    background-color: #145688;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer-logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+ul {
+    list-style: none;
+}
+
+ul li {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+ul li:last-child {
+    margin-right: 0;
+}
+
+ul li a {
+    text-decoration: none;
+    color: #fff;
+}
+
+/* Add this CSS for the "Send Request" button */
+.send-request {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#request-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+#request-button.request-sent {
+    background-color: #28a745; /* Change color when request is sent */
+}

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Details</title>
+    <link rel="stylesheet" href="project.css"> <!-- Link to your CSS file -->
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-logo">Your Logo</div>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Teams</a></li>
+                <li><a href="#">Workspace</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main class="project-details">
+        <section class="project-header">
+            <h1 id="project-name">Project Name</h1>
+        </section>
+        
+        <section class="project-description">
+            <h2>Description</h2>
+            <p id="project-description"></p>
+        </section>
+
+        <section class="project-scopes">
+            <h2>Project Scopes</h2>
+            <ul id="project-scopes">
+                
+            </ul>
+        </section>
+        
+        <section class="project-outcomes">
+            <h2>Project Outcomes</h2>
+            <ul id="project-outcomes">
+            </ul>
+        </section>
+        
+        
+
+        <section class="required-skills">
+            <h2>Required Skills</h2>
+            <ul id="required-skills">
+              
+            </ul>
+        </section>
+
+        <section class="send-request">
+            <button id="request-button" onclick="toggleRequestStatus()">Send Request</button>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">Your Logo</div>
+            <ul>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms of Service</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+        </div>
+    </footer>
+    <script>
+        // Retrieve project details from sessionStorage
+        const projectName = sessionStorage.getItem('projectName');
+        const projectDescription = sessionStorage.getItem('projectDescription');
+        const projectScopes = sessionStorage.getItem('projectScopes').split(',');
+        const projectOutcomes = sessionStorage.getItem('projectOutcomes').split(',');
+        const projectSkills = sessionStorage.getItem('projectSkills').split(',');
+
+        // Update the project details on the page
+        if (projectName) {
+            document.getElementById('project-name').textContent = projectName;
+        }
+        if (projectDescription) {
+            document.getElementById('project-description').textContent = projectDescription;
+        }
+        if (projectScopes) {
+            const scopesList = document.getElementById('project-scopes');
+            projectScopes.forEach(scope => {
+                const li = document.createElement('li');
+                li.textContent = scope.trim();
+                scopesList.appendChild(li);
+            });
+        }
+        if (projectOutcomes) {
+            const outcomesList = document.getElementById('project-outcomes');
+            projectOutcomes.forEach(outcome => {
+                const li = document.createElement('li');
+                li.textContent = outcome.trim();
+                outcomesList.appendChild(li);
+            });
+        }
+        if (projectSkills) {
+            const skillsList = document.getElementById('required-skills');
+            projectSkills.forEach(skill => {
+                const li = document.createElement('li');
+                li.textContent = skill.trim();
+                skillsList.appendChild(li);
+            });
+        }
+        let requestSent = false; // Track the request status
+
+function toggleRequestStatus() {
+    // Get the button element
+    const requestButton = document.getElementById('request-button');
+
+    // Toggle the request status and update the button text accordingly
+    if (!requestSent) {
+        requestSent = true;
+        requestButton.textContent = 'Request Sent';
+        requestButton.classList.add('request-sent');
+        // You can also add additional logic here, such as sending the request.
+    }
+}
+    </script>
+</body>
+</html>

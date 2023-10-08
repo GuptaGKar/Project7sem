@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Collaborative Platform</title>
+    <link rel="stylesheet" href="home.css"> <!-- Link to your CSS file -->
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-logo">Project Collaborative Platform</div>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Teams</a></li>
+                <li><a href="#">Workspace</a></li>
+            </ul>
+            <!-- Sign In / Sign Up button -->
+            <div class="sign-in-sign-up">
+                <a href="#">Sign In</a> / <a href="#">Sign Up</a>
+            </div>
+        </nav>
+    </header>
+    
+    <main>
+        <section class="hero">
+            <h1>Find Your Project</h1>
+        </section>
+        
+        <section class="job-listings">
+            <!-- Job listings go here -->
+        </section>
+
+        <!-- Project Display Containers Section -->
+        <section class="project-display">
+            <!-- Project containers go here -->
+             <!-- Project container 1 -->
+             <div class="project-container" onclick="redirectToProject('Project 1')">
+                <h3>Project Title 1</h3>
+                <p>Project Description goes here. Lorem ipsum dolor sit amet...</p>
+                <h4>Required Skills:</h4>
+                <p class="skills">Skill 1, Skill 2, Skill 3</p>
+                
+            </div>
+
+            <!-- Project container 2 -->
+            <div class="project-container" onclick="redirectToProject('Project 2')">
+                <h3>Project Title 2</h3>
+                <p>Project Description goes here. Lorem ipsum dolor sit amet...</p>
+                <h4>Required Skills:</h4>
+                <p class="skills">Skill A, Skill B, Skill C</p>
+            </div>
+
+            <!-- Project container 3 -->
+            <div class="project-container">
+                <h3>Project Title 3</h3>
+                <p>Project Description goes here. Lorem ipsum dolor sit amet...</p>
+                <h4>Required Skills:</h4>
+                <p class="skills">Skill X, Skill Y, Skill Z</p>
+            </div>
+
+            <!-- Add more project containers as needed -->
+        </section>
+
+        <!-- Add button -->
+        <button id="add-project-button" class="floating-button">+</button>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">Project Collaborative Platform</div>
+            <ul>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms of Service</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+        </div>
+    </footer>
+    <script>
+        function redirectToProject(name, description, scopes, outcomes, skills) {
+            // Store project details in sessionStorage
+            sessionStorage.setItem('projectName', name);
+            sessionStorage.setItem('projectDescription', description);
+            sessionStorage.setItem('projectScopes', scopes);
+            sessionStorage.setItem('projectOutcomes', outcomes);
+            sessionStorage.setItem('projectSkills', skills);
+
+            // Redirect to project.html
+            window.location.href = 'project.html';
+        }
+    </script>
+</body>
+</html>
