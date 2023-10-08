@@ -1,5 +1,5 @@
-/* Reset some default styles */
-body, h1, h2, h3, p, ul {
+/* Reset some default browser styles */
+body, h1, p {
     margin: 0;
     padding: 0;
 }
@@ -7,120 +7,182 @@ body, h1, h2, h3, p, ul {
 /* Global styles */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f5f5f5;
+    background-color: #f4f4f4;
     color: #333;
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
+    height: 100%; /* Make sure the body takes up the full viewport height */
+    margin: 0;
 }
 
 /* Header styles */
 header {
-    background-color: #007bff;
-    color: #fff;
-    padding: 10px 0;
-    text-align: center;
+    background-color: #0073e6;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 1rem 0;
 }
 
+/* Navigation styles */
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
 }
 
 .nav-logo {
-    font-size: 24px;
+    font-size: 1.5rem;
     font-weight: bold;
+    color: #fff;
 }
 
-ul {
+nav ul {
     list-style: none;
     display: flex;
 }
 
-ul li {
-    margin-right: 20px;
+nav ul li {
+    margin-right: 1rem;
 }
 
-/* Sign In / Sign Up button styles */
-.sign-in-sign-up a {
-    color: #fff;
+nav ul li:last-child {
+    margin-right: 0;
+}
+
+nav ul li a {
     text-decoration: none;
+    color: #fff;
+    font-weight: bold;
 }
 
 /* Main content styles */
 main {
-    padding: 20px;
+    padding: 1rem;
 }
 
+/* Uploaded Projects styles */
 .uploaded-projects {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
     background-color: #fff;
-    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 h1 {
-    font-size: 24px;
-    margin-bottom: 20px;
+    font-size: 2rem;
+    margin-bottom: 1rem;
 }
 
-/* Project container styles */
+/* Project Container styles */
 .project-container {
     background-color: #fff;
-    padding: 20px;
+    padding: 1rem;
+    margin-bottom: 1rem;
     border: 1px solid #ccc;
-    margin-bottom: 20px;
     border-radius: 5px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.project-container:hover {
+    transform: scale(1.02);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 .project-container h3 {
-    font-size: 20px;
-    margin-bottom: 10px;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: #333;
 }
 
 .project-container p {
-    font-size: 16px;
-    margin-bottom: 10px;
-}
-
-.project-details {
-    list-style: disc;
-    margin-left: 20px;
+    color: #666;
+    margin-bottom: 1rem;
 }
 
 /* Footer styles */
 footer {
     background-color: #333;
     color: #fff;
-    padding: 20px 0;
-    text-align: center;
+    padding: 2rem 0;
 }
 
 .footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 0 1rem;
 }
 
 .footer-logo {
-    font-size: 18px;
+    font-size: 1.5rem;
     font-weight: bold;
 }
 
-ul {
-    display: flex;
+footer ul {
     list-style: none;
+    display: flex;
 }
 
-ul li {
-    margin-right: 20px;
+footer ul li {
+    margin-right: 1rem;
 }
 
-ul li a {
-    color: #fff;
+footer ul li:last-child {
+    margin-right: 0;
+}
+
+footer ul li a {
     text-decoration: none;
+    color: #fff;
+}
+
+/* Floating Button */
+.floating-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #0073e6;
+    color: #fff;
+    font-size: 24px;
+    width: 70px;
+    height: 70px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+}
+
+.floating-button:focus {
+    outline: none;
+}
+
+.floating-button:hover {
+    background-color: #0055a4;
+}
+
+.floating-button:active {
+    background-color: #003d7d;
+}
+
+/* Sign In / Sign Up button styles */
+.sign-in-sign-up {
+    position: absolute;
+    top: 30px;
+    right: 20px;
+    font-size: 16px;
+}
+
+.sign-in-sign-up a {
+    text-decoration: none;
+    color: #ffffff;
+    margin: 0 10px;
+}
+
+.sign-in-sign-up a:hover {
+    text-decoration: underline;
 }
