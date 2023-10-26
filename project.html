@@ -9,55 +9,44 @@
 <body>
     <header>
         <nav>
-            <div class="nav-logo">Your Logo</div>
+            <div class="nav-logo">Project Collaborative Platform</div>
             <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Teams</a></li>
-                <li><a href="#">Workspace</a></li>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="team.html">Teams</a></li>
+                <li><a href="workspace.html">Workspace</a></li>
             </ul>
         </nav>
     </header>
     
-    <main class="project-details">
-        <section class="project-header">
-            <h1 id="project-name">Project Name</h1>
-        </section>
-        
-        <section class="project-description">
-            <h2>Description</h2>
-            <p id="project-description"></p>
-        </section>
+    <main>
+        <section class="project-details">
+            <h1>Project Details</h1>
 
-        <section class="project-scopes">
-            <h2>Project Scopes</h2>
-            <ul id="project-scopes">
-                
-            </ul>
-        </section>
-        
-        <section class="project-outcomes">
-            <h2>Project Outcomes</h2>
-            <ul id="project-outcomes">
-            </ul>
-        </section>
-        
-        
+            <div class="project-info">
+                <h2 id="project-name">Project Name</h2>
+                <p id="project-description">Project Description</p>
 
-        <section class="required-skills">
-            <h2>Required Skills</h2>
-            <ul id="required-skills">
-              
-            </ul>
-        </section>
+                <h3>Project Scopes:</h3>
+                <ul id="project-scopes">
+                    <!-- Project scopes will be added dynamically with JavaScript -->
+                </ul>
 
-        <section class="send-request">
-            <button id="request-button" onclick="toggleRequestStatus()">Send Request</button>
+                <h3>Project Outcomes:</h3>
+                <ul id="project-outcomes">
+                    <!-- Project outcomes will be added dynamically with JavaScript -->
+                </ul>
+
+                <h3>Required Skills:</h3>
+                <ul id="required-skills">
+                    <!-- Required skills will be added dynamically with JavaScript -->
+                </ul>
+            </div>
         </section>
     </main>
 
     <footer>
         <div class="footer-content">
-            <div class="footer-logo">Your Logo</div>
+            <div class="footer-logo">Project Collaborative Platform</div>
             <ul>
                 <li><a href="#">Privacy Policy</a></li>
                 <li><a href="#">Terms of Service</a></li>
@@ -65,59 +54,46 @@
             </ul>
         </div>
     </footer>
+
     <script>
-        // Retrieve project details from sessionStorage
-        const projectName = sessionStorage.getItem('projectName');
-        const projectDescription = sessionStorage.getItem('projectDescription');
-        const projectScopes = sessionStorage.getItem('projectScopes').split(',');
-        const projectOutcomes = sessionStorage.getItem('projectOutcomes').split(',');
-        const projectSkills = sessionStorage.getItem('projectSkills').split(',');
+        // JavaScript to extract and populate project details
+        const urlParams = new URLSearchParams(window.location.search);
+        const projectName = urlParams.get('name');
+        const projectDescription = urlParams.get('description');
+        const projectScopes = urlParams.get('scopes');
+        const projectOutcomes = urlParams.get('outcomes');
+        const requiredSkills = urlParams.get('skills');
 
-        // Update the project details on the page
-        if (projectName) {
-            document.getElementById('project-name').textContent = projectName;
-        }
-        if (projectDescription) {
-            document.getElementById('project-description').textContent = projectDescription;
-        }
-        if (projectScopes) {
-            const scopesList = document.getElementById('project-scopes');
-            projectScopes.forEach(scope => {
-                const li = document.createElement('li');
-                li.textContent = scope.trim();
-                scopesList.appendChild(li);
-            });
-        }
-        if (projectOutcomes) {
-            const outcomesList = document.getElementById('project-outcomes');
-            projectOutcomes.forEach(outcome => {
-                const li = document.createElement('li');
-                li.textContent = outcome.trim();
-                outcomesList.appendChild(li);
-            });
-        }
-        if (projectSkills) {
-            const skillsList = document.getElementById('required-skills');
-            projectSkills.forEach(skill => {
-                const li = document.createElement('li');
-                li.textContent = skill.trim();
-                skillsList.appendChild(li);
-            });
-        }
-        let requestSent = false; // Track the request status
+        // Update the HTML elements with project information
+        document.getElementById('project-name').textContent = projectName;
+        document.getElementById('project-description').textContent = projectDescription;
 
-function toggleRequestStatus() {
-    // Get the button element
-    const requestButton = document.getElementById('request-button');
+        // Process and add project scopes, outcomes, and required skills
+        const projectScopesList = projectScopes.split(', ');
+        const projectOutcomesList = projectOutcomes.split(', ');
+        const requiredSkillsList = requiredSkills.split(', ');
 
-    // Toggle the request status and update the button text accordingly
-    if (!requestSent) {
-        requestSent = true;
-        requestButton.textContent = 'Request Sent';
-        requestButton.classList.add('request-sent');
-        // You can also add additional logic here, such as sending the request.
-    }
-}
+        const scopesListElement = document.getElementById('project-scopes');
+        const outcomesListElement = document.getElementById('project-outcomes');
+        const skillsListElement = document.getElementById('required-skills');
+
+        projectScopesList.forEach(scope => {
+            const li = document.createElement('li');
+            li.textContent = scope;
+            scopesListElement.appendChild(li);
+        });
+
+        projectOutcomesList.forEach(outcome => {
+            const li = document.createElement('li');
+            li.textContent = outcome;
+            outcomesListElement.appendChild(li);
+        });
+
+        requiredSkillsList.forEach(skill => {
+            const li = document.createElement('li');
+            li.textContent = skill;
+            skillsListElement.appendChild(li);
+        });
     </script>
 </body>
 </html>

@@ -3,53 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Team Page</title>
-    <link rel="stylesheet" href="team.css"> <!-- Link to your CSS file -->
+    <title>Team Projects</title>
+    <link rel="stylesheet" href="team.css"> <!-- Link to your team.css file -->
 </head>
 <body>
     <header>
         <nav>
-            <!-- Navigation links (e.g., Home, Teams, Workspace) -->
             <div class="nav-logo">Project Collaborative Platform</div>
             <ul>
                 <li><a href="home.html">Home</a></li>
-                <li><a href="#">Workspace</a></li>
-                <!-- Add a link to team.html -->
                 <li><a href="team.html">Teams</a></li>
+                <li><a href="workspace.html">Workspace</a></li>
             </ul>
         </nav>
-        <div class="sign-in-sign-up">
-            <a href="#">Sign In</a> / <a href="#">Sign Up</a>
-        </div>
     </header>
-
+    
     <main>
-        <section class="uploaded-projects">
-            <h1>Uploaded Projects</h1>
-            <!-- Display uploaded projects here -->
+        <section class="team-projects">
+            <h1>Team Projects</h1>
 
-            <!-- Example project container -->
-            <div class="project-container">
-                <h3>Project Title 1</h3>
-                <p>Project Description goes here. Lorem ipsum dolor sit amet...</p>
-                <ul class="project-details">
-                    <li>Scope 1</li>
-                    <li>Scope 2</li>
-                </ul>
-                <ul class="project-details">
-                    <li>Outcome 1</li>
-                    <li>Outcome 2</li>
-                </ul>
-                <p>Required Skills: Skill 1, Skill 2</p>
+            <!-- Project containers with members' names -->
+            <div class="project-container" onclick="redirectToProject('Project 1', 'Member 1, Member 2, Member 3', 'Scope 1, Scope 2', 'Outcome 1, Outcome 2', 'Skill 1, Skill 2')">
+                <h2>Project 1</h2>
+                <p>Members: Member 1, Member 2, Member 3</p>
             </div>
-
-            <!-- Add more project containers for uploaded projects -->
+            
+            <div class="project-container" onclick="redirectToProject('Project 2', 'Member A, Member B, Member C', 'Scope A, Scope B', 'Outcome A, Outcome B', 'Skill A, Skill B')">
+                <h2>Project 2</h2>
+                <p>Members: Member A, Member B, Member C</p>
+            </div>
+            
+            <!-- Add more project containers as needed -->
         </section>
     </main>
 
     <footer>
         <div class="footer-content">
-            <!-- Footer content (e.g., logo, links) -->
             <div class="footer-logo">Project Collaborative Platform</div>
             <ul>
                 <li><a href="#">Privacy Policy</a></li>
@@ -58,5 +47,12 @@
             </ul>
         </div>
     </footer>
+
+    <script>
+        function redirectToProject(projectName, projectMembers, projectScopes, projectOutcomes, requiredSkills) {
+            const url = `project.html?name=${encodeURIComponent(projectName)}&members=${encodeURIComponent(projectMembers)}&scopes=${encodeURIComponent(projectScopes)}&outcomes=${encodeURIComponent(projectOutcomes)}&skills=${encodeURIComponent(requiredSkills)}`;
+            window.location.href = url;
+        }
+    </script>
 </body>
 </html>

@@ -1,0 +1,3 @@
+accessKeyId: 'AKIA2H3XKDBLQDONOVQX',
+secretAccessKey: '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',
+region: 'Asia Pacific (Mumbai) ap-south-1'
