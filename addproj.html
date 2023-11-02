@@ -1,85 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Project</title>
-  </head>
-  <body>
-    <h1>Add Project</h1>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js "></script>
+    <script src="./mail.js"></script>
+</head>
+<body>
+    <h1>Add a Project</h1>
     <form id="project-form">
-      <label for="project-name">Project Name:</label>
-      <input type="text" id="project-name" required />
+        <label for="project-name">Project Name:</label>
+        <input type="text" id="project-name" required><br>
+        <label for="project-description">Project Description:</label>
+        <textarea id="project-description" required></textarea><br>
+        <label for="project-scope">Project Scope:</label>
+        <textarea id="project-scope" required></textarea><br>
+        <label for="project-outcomes">Project Outcomes:</label>
+        <textarea id="project-outcomes" required></textarea><br>
+        <label for="technical-skills">Technical Skills:</label>
+        <input type="text" id="technical-skills" required><br>
+        <button type="submit" id="add-project-button">Add Project</button>
+        </form>
 
-      <label for="project-description">Project Description:</label>
-      <textarea id="project-description" required></textarea>
+    <!-- <script type="module">
 
-      <label for="project-scope">Project Scope:</label>
-      <textarea id="project-scope" required></textarea>
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-analytics.js";
+       
+        // Firebase configuration
+       
 
-      <label for="project-outcomes">Project Outcomes:</label>
-      <textarea id="project-outcomes" required></textarea>
+        // Initialize Firebase
+        
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        
+        // Reference to Firestore database
+        const db = firebase.firestore();
 
-      <label for="skills">Technical Skills:</label>
-      <input type="text" id="skills" required />
+        // Reference to the project collection in Firestore
+        const projectsRef = db.collection('projects');
 
-      <button type="button" id="add-project-btn">Add Project</button>
-    </form>
+        // Add project data to Firestore
+        document.getElementById('add-project-button').addEventListener('click', () => {
+            const projectName = document.getElementById('project-name').value;
+            const projectDescription = document.getElementById('project-description').value;
+            const projectScope = document.getElementById('project-scope').value;
+            const projectOutcomes = document.getElementById('project-outcomes').value;
+            const technicalSkills = document.getElementById('technical-skills').value;
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-      $(document).ready(function () {
-        // Configure AWS SDK with your credentials here
-
-        // Replace these with your actual credentials and bucket name
-        AWS.config.update({
-          accessKeyId: "AKIA2H3XKDBLQDONOVQX",
-          secretAccessKey: "b44Mwi3Z4oxr9EVaLMtHjQ3xSwWtddLnDfVJT56E",
-          region: "Asia Pacific (Mumbai) ap-south-1",
+            projectsRef.add({
+                projectName,
+                projectDescription,
+                projectScope,
+                projectOutcomes,
+                technicalSkills,
+            })
+            .then(() => {
+                alert('Project added successfully.');
+                document.getElementById('project-form').reset();
+            })
+            .catch((error) => {
+                console.error('Error adding project: ', error);
+            });
         });
-
-        // Replace 'YOUR_BUCKET_NAME' with your S3 bucket name
-        const bucketName = "collabprojplatform";
-
-        // Create an S3 object
-        const s3 = new AWS.S3();
-
-        // Add project button click event
-        $("#add-project-btn").on("click", function () {
-          const projectName = $("#project-name").val();
-          const projectDescription = $("#project-description").val();
-          const projectScope = $("#project-scope").val();
-          const projectOutcomes = $("#project-outcomes").val();
-          const skills = $("#skills").val();
-
-          const data = {
-            projectName,
-            projectDescription,
-            projectScope,
-            projectOutcomes,
-            skills,
-          };
-
-          // Upload the data to S3 bucket
-          const params = {
-            Bucket: "collabprojplatform",
-            Key: "project-data.json",
-            Body: JSON.stringify(data),
-            ContentType: "application/json",
-          };
-
-          s3.upload(params, function (err, data) {
-            if (err) {
-              console.log("Error uploading data: ", err);
-            } else {
-              console.log("Successfully uploaded data to " + data.Location);
-              alert("Project added successfully!");
-              // You can redirect the user to another page after a successful upload.
-              window.location.href = home.html;
-            }
-          });
-        });
-      });
-    </script>
-  </body>
+        
+    </script> -->
+</body>
 </html>
