@@ -1,43 +1,53 @@
-// Reference to the "projects" node in the database
+// Initialize Firebase with your configuration
+//firebase.initializeApp(firebaseConfig);
+
+// Reference to the Firebase database
+var database = firebase.database();
 var projectsRef = database.ref('ki');
 
-// Listen for changes to the "projects" node
-projectsRef.on('value', function (snapshot) {
-    // Clear existing project listings
-    var projectListings = document.getElementById('project-listings');
-    projectListings.innerHTML = projectContainer;
+// Function to create and append a project container
+function createProjectContainer(projectData) {
+    var projectDisplay = document.querySelector('.project-display');
 
-    // Iterate through the snapshot of projects
-    snapshot.forEach(function (projectSnapshot) {
-        var projectData = projectSnapshot.val();
+    // Create a new project container
+    var projectContainer = document.createElement('div');
+    projectContainer.classList.add('project-container');
 
-        // Create a container for each project
-        var projectContainer = document.createElement('div');
-        projectContainer.className = 'project-container';
+    // Populate the container with project details
+    var projectName = document.createElement('h3');
+    projectName.textContent = projectData.pname;
+    projectContainer.appendChild(projectName);
 
-        // Populate the container with project data
-        var projectName = document.createElement('h3');
-        projectName = snapshot.val().pname;
-        projectContainer.appendChild(projectName);
+    var projectDescription = document.createElement('p');
+    projectDescription.textContent = projectData.desc;
+    projectContainer.appendChild(projectDescription);
 
-        var projectDescription = document.createElement('p');
-        projectDescription.textContent = projectData.desc;
-        projectContainer.appendChild(projectDescription);
+    var projectScope = document.createElement('p');
+    projectScope.textContent = projectData.scope;
+    projectContainer.appendChild(projectScope);
 
-        var requiredSkills = document.createElement('h4');
-        requiredSkills.textContent = 'Required Skills:';
-        projectContainer.appendChild(requiredSkills);
+    var projectOutcomes = document.createElement('p');
+    projectOutcomes.textContent = projectData.out;
+    projectContainer.appendChild(projectOutcomes);
 
-        var skillsList = document.createElement('ul');
-        var skillsArray = projectData.skill.split(', ');
-        skillsArray.forEach(function (skill) {
-            var skillItem = document.createElement('li');
-            skillItem.textContent = skill;
-            skillsList.appendChild(skillItem);
+    var projectSkills = document.createElement('p');
+    projectSkills.textContent = projectData.skill;
+    projectContainer.appendChild(projectSkills);
+
+    // Append the project container to the display section
+    projectDisplay.appendChild(projectContainer);
+}
+
+// Function to fetch and display project data
+function displayProjects() {
+    projectsRef.on('value', function (snapshot) {
+      //  projectDisplay.innerHTML = ''; // Clear existing containers before populating
+        snapshot.forEach(function (childSnapshot) {
+            var projectData = childSnapshot.val();
+            createProjectContainer(projectData);
         });
-        projectContainer.appendChild(skillsList);
-
-        // Add project container to the project listings
-        projectListings.appendChild(projectContainer);
     });
-});
+}
+
+// Call the displayProjects function to populate the project containers
+displayProjects();

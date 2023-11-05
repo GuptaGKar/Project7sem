@@ -11,4 +11,4 @@ const firebaseConfig = {
 
   firebase.initializeApp(firebaseConfig);
 
-  var kiDB = firebase.database().ref("ki");
+  var kiDB = firebase.database().ref('ki');
