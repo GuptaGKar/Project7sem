@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Project</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js "></script>
-    <script src="./mail.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase.js"></script>
+    <script src="firebase-config.js"></script>
+    <link rel="stylesheet" href="addproj.css"> 
 </head>
 <body>
     <h1>Add a Project</h1>
@@ -18,54 +19,10 @@
         <textarea id="project-scope" required></textarea><br>
         <label for="project-outcomes">Project Outcomes:</label>
         <textarea id="project-outcomes" required></textarea><br>
-        <label for="technical-skills">Technical Skills:</label>
+        <label for="technical-skills">Technical Skills (separate with commas or spaces):</label>
         <input type="text" id="technical-skills" required><br>
         <button type="submit" id="add-project-button">Add Project</button>
-        </form>
-
-    <!-- <script type="module">
-
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-app.js";
-  import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-analytics.js";
-       
-        // Firebase configuration
-       
-
-        // Initialize Firebase
-        
-        const app = initializeApp(firebaseConfig);
-        const analytics = getAnalytics(app);
-        
-        // Reference to Firestore database
-        const db = firebase.firestore();
-
-        // Reference to the project collection in Firestore
-        const projectsRef = db.collection('projects');
-
-        // Add project data to Firestore
-        document.getElementById('add-project-button').addEventListener('click', () => {
-            const projectName = document.getElementById('project-name').value;
-            const projectDescription = document.getElementById('project-description').value;
-            const projectScope = document.getElementById('project-scope').value;
-            const projectOutcomes = document.getElementById('project-outcomes').value;
-            const technicalSkills = document.getElementById('technical-skills').value;
-
-            projectsRef.add({
-                projectName,
-                projectDescription,
-                projectScope,
-                projectOutcomes,
-                technicalSkills,
-            })
-            .then(() => {
-                alert('Project added successfully.');
-                document.getElementById('project-form').reset();
-            })
-            .catch((error) => {
-                console.error('Error adding project: ', error);
-            });
-        });
-        
-    </script> -->
+    </form>
+    <script src="addproj.js"></script>
 </body>
 </html>

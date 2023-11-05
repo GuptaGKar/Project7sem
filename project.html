@@ -36,7 +36,7 @@
                     <!-- Project outcomes will be added dynamically with JavaScript -->
                 </ul>
 
-                <h3>Required Skills:</h3>
+                <h3>id="required-skills"</h3>
                 <ul id="required-skills">
                     <!-- Required skills will be added dynamically with JavaScript -->
                 </ul>
@@ -55,45 +55,6 @@
         </div>
     </footer>
 
-    <script>
-        // JavaScript to extract and populate project details
-        const urlParams = new URLSearchParams(window.location.search);
-        const projectName = urlParams.get('name');
-        const projectDescription = urlParams.get('description');
-        const projectScopes = urlParams.get('scopes');
-        const projectOutcomes = urlParams.get('outcomes');
-        const requiredSkills = urlParams.get('skills');
-
-        // Update the HTML elements with project information
-        document.getElementById('project-name').textContent = projectName;
-        document.getElementById('project-description').textContent = projectDescription;
-
-        // Process and add project scopes, outcomes, and required skills
-        const projectScopesList = projectScopes.split(', ');
-        const projectOutcomesList = projectOutcomes.split(', ');
-        const requiredSkillsList = requiredSkills.split(', ');
-
-        const scopesListElement = document.getElementById('project-scopes');
-        const outcomesListElement = document.getElementById('project-outcomes');
-        const skillsListElement = document.getElementById('required-skills');
-
-        projectScopesList.forEach(scope => {
-            const li = document.createElement('li');
-            li.textContent = scope;
-            scopesListElement.appendChild(li);
-        });
-
-        projectOutcomesList.forEach(outcome => {
-            const li = document.createElement('li');
-            li.textContent = outcome;
-            outcomesListElement.appendChild(li);
-        });
-
-        requiredSkillsList.forEach(skill => {
-            const li = document.createElement('li');
-            li.textContent = skill;
-            skillsListElement.appendChild(li);
-        });
-    </script>
+    <script src="project.js"></script>
 </body>
 </html>

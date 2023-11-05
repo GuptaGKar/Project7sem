@@ -1,145 +1,59 @@
-/* Reset some default browser styles */
-body, h1, p {
-    margin: 0;
-    padding: 0;
-}
+/* CSS for addproj.html */
 
-/* Global styles */
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
     color: #333;
-    height: 100%; /* Make sure the body takes up the full viewport height */
     margin: 0;
+    padding: 0;
+    text-align: center;
+    margin-top: 20px;
 }
 
-/* Header styles */
-header {
-    background-color: #0073e6;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    padding: 1rem 0;
-}
-
-/* Navigation styles */
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 1rem;
-}
-
-.nav-logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #fff;
-}
-
-nav ul {
-    list-style: none;
-    display: flex;
-}
-
-nav ul li {
-    margin-right: 1rem;
-}
-
-nav ul li:last-child {
-    margin-right: 0;
-}
-
-nav ul li a {
-    text-decoration: none;
-    color: #fff;
-    font-weight: bold;
-}
-
-/* Add Project section styles */
-.add-project {
-    max-width: 1200px;
-    margin: 2rem auto;
-    padding: 2rem;
-    background-color: #fff;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
-}
-
-.add-project h1 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
+h1 {
     color: #333;
 }
 
-form label {
+#project-form {
+    background-color: #fff;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+label {
     font-weight: bold;
     display: block;
-    margin-top: 1rem;
-    color: #333;
+    margin-top: 10px;
 }
 
-form input, form textarea {
+input[type="text"],
+textarea {
     width: 100%;
-    padding: 0.5rem;
-    margin-top: 0.5rem;
+    padding: 10px;
+    margin: 10px 0;
     border: 1px solid #ccc;
     border-radius: 5px;
+    font-size: 16px;
 }
 
-.add-button {
+button {
     background-color: #0073e6;
     color: #fff;
+    padding: 10px 20px;
     border: none;
-    padding: 0.5rem 1rem;
     border-radius: 5px;
     cursor: pointer;
-    font-weight: bold;
-    margin-top: 1rem;
+    font-size: 16px;
+    margin-top: 10px;
 }
 
-.add-button:hover {
+button:hover {
     background-color: #0055a4;
 }
 
-.add-button:focus {
+button:focus {
     outline: none;
-}
-
-/* Footer styles */
-footer {
-    background-color: #333;
-    color: #fff;
-    padding: 2rem 0;
-}
-
-.footer-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 1rem;
-}
-
-.footer-logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-}
-
-footer ul {
-    list-style: none;
-    display: flex;
-}
-
-footer ul li {
-    margin-right: 1rem;
-}
-
-footer ul li:last-child {
-    margin-right: 0;
-}
-
-footer ul li a {
-    text-decoration: none;
-    color: #fff;
 }

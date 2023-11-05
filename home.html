@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Project Collaborative Platform</title>
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase.js"></script>
+    <script src="firebase-config.js"></script>
+
     <link rel="stylesheet" href="home.css"> <!-- Link to your CSS file -->
 </head>
 <body>
@@ -26,39 +29,20 @@
         <section class="hero">
             <h1>Find Your Project</h1>
         </section>
-        
-        <section class="job-listings">
-            <!-- Job listings go here -->
-        </section>
 
         <!-- Project Display Containers Section -->
         <section class="project-display">
             <!-- Project containers go here -->
              <!-- Project container 1 -->
              <div class="project-container" onclick="redirectToProject('Project 1')">
-                <h3>Project Title 1</h3>
-                <p>Project Description goes here. Lorem ipsum dolor sit amet...</p>
+                <h3 id="project-name">Project Title 1</h3>
+                <p id="project-description">Project Description goes here. Lorem ipsum dolor sit amet...</p>
                 <h4>Required Skills:</h4>
-                <p class="skills">Skill 1, Skill 2, Skill 3</p>
+                <p id="required-skills">Skill 1, Skill 2, Skill 3</p>
                 
             </div>
 
-            <!-- Project container 2 -->
-            <div class="project-container" onclick="redirectToProject('Project 2')">
-                <h3>Project Title 2</h3>
-                <p>Project Description goes here. Lorem ipsum dolor sit amet...</p>
-                <h4>Required Skills:</h4>
-                <p class="skills">Skill A, Skill B, Skill C</p>
-            </div>
-
-            <!-- Project container 3 -->
-            <div class="project-container">
-                <h3>Project Title 3</h3>
-                <p>Project Description goes here. Lorem ipsum dolor sit amet...</p>
-                <h4>Required Skills:</h4>
-                <p class="skills">Skill X, Skill Y, Skill Z</p>
-            </div>
-
+           
             <!-- Add more project containers as needed -->
         </section>
 
@@ -90,5 +74,6 @@
             window.location.href = 'project.html';
         }
     </script>
+    <script src="home.js"></script>
 </body>
 </html>
